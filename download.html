@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>材料下载｜李宗谦</title>
+  <meta name="description" content="李宗谦作品材料和简历下载。" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#f3f6f8" />
+  <link rel="canonical" href="https://892069773-stack.github.io/download.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:site_name" content="李宗谦个人主页" />
+  <meta property="og:title" content="材料下载｜李宗谦" />
+  <meta property="og:description" content="简历、作品材料和推荐信下载。" />
+  <meta property="og:url" content="https://892069773-stack.github.io/download.html" />
+  <meta property="og:image" content="https://892069773-stack.github.io/assets/profile-hero.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="材料下载｜李宗谦" />
+  <meta name="twitter:description" content="简历、作品材料和推荐信下载。" />
+  <meta name="twitter:image" content="https://892069773-stack.github.io/assets/profile-hero.jpg" />
+  <link rel="icon" href="assets/site-icon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body data-page="download">
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">LZ</span><span>李宗谦<small>Recruiting x AI</small></span></a><nav class="top-nav"><a href="index.html" data-nav="home">Home</a><a href="about.html" data-nav="about">About</a><a href="experience.html" data-nav="experience">Cases</a><a href="works.html" data-nav="works">Works</a><a href="cv.html" data-nav="cv">CV</a><a href="life.html" data-nav="life">Life</a><a href="contact.html" data-nav="contact">Contact</a></nav></div></header>
+  <nav class="mobile-nav"><a href="index.html" data-nav="home">首页</a><a href="about.html" data-nav="about">关于</a><a href="experience.html" data-nav="experience">实战</a><a href="works.html" data-nav="works">作品</a><a href="cv.html" data-nav="cv">履历</a><a href="life.html" data-nav="life">生活</a><a href="contact.html" data-nav="contact">联系</a></nav>
+  <main id="main">
+    <section class="container page-hero download-hero">
+      <p class="eyebrow">Download</p>
+      <h1 class="page-title" data-doc-title>材料文件</h1>
+      <p class="lead" data-doc-lead>点击下载 PDF。</p>
+      <div class="actions">
+        <a class="btn primary" href="#" data-direct-download>下载 PDF</a>
+        <a class="btn" href="works.html" data-back-link>返回</a>
+      </div>
+      <p class="download-status" data-status role="status" aria-live="polite">PDF 已就绪。微信里没反应的话，用右上角在浏览器打开。</p>
+    </section>
+  </main>
+  <footer class="footer"><div class="container"><span>李宗谦｜材料下载</span><span>简历 / 作品材料 / 推荐信</span></div></footer>
+  <button class="back-top" data-back-top aria-label="返回顶部">↑</button>
+  <script src="assets/app.js"></script>
+  <script>
+    (() => {
+      const docs = {
+        cv: {
+          title: "李宗谦简历文件",
+          lead: "为保护个人隐私，公开站不直接托管含手机号的 PDF 简历，请通过联系页获取最新版。",
+          archive: "contact.html",
+          archiveName: "李宗谦个人简历.pdf",
+          base64: "", native: true,
+          back: "cv.html"
+        },
+        aihr: {
+          title: "AI-HR 方案材料",
+          lead: "直接下载方案 PDF。",
+          archive: "downloads/ai-hr-system.dat",
+          archiveName: "AI-HR-智能招聘与猎聘系统方案.pdf",
+          base64: "",
+          back: "works.html#aihr"
+        },
+        goose: {
+          title: "未来鹅方案材料",
+          lead: "直接下载方案 PDF。",
+          archive: "downloads/future-goose.dat",
+          archiveName: "未来鹅-AI成长陪伴平台方案.pdf",
+          base64: "",
+          back: "works.html#future-goose"
+        },
+        reference: {
+          title: "教授推荐信",
+          lead: "为尊重推荐人隐私，公开站不直接托管教授签字原件，面试交流时可按需提供。",
+          archive: "contact.html",
+          archiveName: "李宗谦-教授推荐信.pdf",
+          base64: "",
+          back: "reference.html"
+        }
+      };
+
+      const params = new URLSearchParams(window.location.search);
+      const doc = docs[params.get("id")] || docs.cv;
+      const title = document.querySelector("[data-doc-title]");
+      const lead = document.querySelector("[data-doc-lead]");
+      const status = document.querySelector("[data-status]");
+      const directLink = document.querySelector("[data-direct-download]");
+      const backLink = document.querySelector("[data-back-link]");
+
+      title.textContent = doc.title;
+      lead.textContent = doc.lead;
+      directLink.href = doc.archive;
+      directLink.download = doc.archiveName;
+      if (doc.native) {
+        delete directLink.dataset.pdfDownload;
+        delete directLink.dataset.pdfBase64;
+        directLink.dataset.nativeDownload = "true";
+      } else if (doc.base64) {
+        delete directLink.dataset.nativeDownload;
+        directLink.dataset.pdfBase64 = doc.base64;
+        directLink.dataset.pdfDownload = "true";
+      } else {
+        delete directLink.dataset.nativeDownload;
+        delete directLink.dataset.pdfBase64;
+        directLink.dataset.pdfDownload = "true";
+      }
+      backLink.href = doc.back;
+      status.textContent = "PDF 已就绪。微信里没反应的话，用右上角在浏览器打开。";
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "id": "/",
+  "name": "李宗谦个人主页",
+  "short_name": "李宗谦",
+  "description": "高端招聘 / 技术猎聘 / 人力运营 AI 方向个人主页",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "zh-CN",
+  "display": "standalone",
+  "background_color": "#f3f6f8",
+  "theme_color": "#f3f6f8",
+  "categories": ["portfolio", "business", "productivity"],
+  "icons": [
+    {
+      "src": "assets/site-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
